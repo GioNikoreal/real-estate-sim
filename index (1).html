@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симулятор риэлтора</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; padding: 20px; }
+        .container { width: 50%; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .button { padding: 10px 20px; margin: 10px; background: blue; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; }
+        .button:hover { background: darkblue; }
+        p { font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Симулятор риэлтора</h1>
+        <p>💰 Баланс: <span id="balance">5000</span> $</p>
+        <button class="button" onclick="findClients()">🔍 Поиск клиентов</button>
+        <button class="button" onclick="makeDeal()">🤝 Заключить сделку</button>
+        <button class="button" onclick="manageAgency()">🏢 Управление агентством</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        let balance = 5000;
+
+        function findClients() {
+            document.getElementById("message").innerText = "🔍 Найдены 3 новых клиента!";
+        }
+
+        function makeDeal() {
+            let commission = Math.floor(Math.random() * 5000) + 1000;
+            balance += commission;
+            document.getElementById("balance").innerText = balance;
+            document.getElementById("message").innerText = `✅ Сделка завершена! Заработано: ${commission} $`;
+        }
+
+        function manageAgency() {
+            document.getElementById("message").innerText = "🏢 Обновлен офис, сотрудники довольны!";
+        }
+    </script>
+</body>
+</html>
